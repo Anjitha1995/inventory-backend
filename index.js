@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const inventoryRoutes = require("../routes/inventoryRoutes");
-const errorHandler = require("../middleware/errorHandler");
+const inventoryRoutes = require("./routes/inventoryRoutes");
+const errorHandler = require("./middleware/errorHandler");
 
 require("dotenv").config();
 
