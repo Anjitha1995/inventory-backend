@@ -16,7 +16,7 @@ exports.validateInventory = (req, res, next) => {
     });
   }
 
-  if (typeof quantity !== "number" && quantity < 0) {
+  if (typeof quantity !== "number" || quantity < 0) {
     return res.status(400).json({
       success: false,
       message: "Quantity must be a positive number"
@@ -29,15 +29,15 @@ exports.validateInventory = (req, res, next) => {
 exports.validateInventoryOnUpdate = (req, res, next) => {
   const {  price, quantity } = req.body;
 
-
-  if (typeof price !== "number" || price < 0) {
+  console.log(price)
+  if (price && (typeof price !== "number" || price < 0)) {
     return res.status(400).json({
       success: false,
       message: "Price must be a positive number"
     });
   }
 
-  if (typeof quantity !== "number" && quantity < 0) {
+  if (quantity && (typeof quantity !== "number" || quantity < 0)) {
     return res.status(400).json({
       success: false,
       message: "Quantity must be  a Positive Number"
